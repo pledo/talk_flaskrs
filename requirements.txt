@@ -6,3 +6,4 @@ nosexcover
 cssmin
 requests
 pylint
+splinter
