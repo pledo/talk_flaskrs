@@ -6,6 +6,7 @@ from sys import exit
 from time import sleep
 
 url = 'http://localhost:5000'
+url_login = 'http://localhost:5000/login'
 text_home = 'Flaskr'
 brow_name= 'firefox'
 sleep_time = 6
@@ -32,15 +33,32 @@ def t_home(browser_obj, address_url):
     return(result)
 
 
-def t_login(browser_obj):
+def t_login(url_l):
     """docstring for test_login"""
-    pass
+    with Browser() as browser_obj:
+        browser_obj.visit(url_l)
+        browser_obj.fill('username', 'admin')
+        browser_obj.fill('password', 'default')
+        button = browser_obj.find_by_value('Login')
+        if button.is_empty != False:
+            button.click()
+            print("Login Ok")
+            sleep(sleep_time)
+            #browser_obj.quit()
+            return(0)
+        else:
+            print("Login Fail")
+            sleep(sleep_time)
+            #browser_obj.quit()
+            return(1)
 
 def main():
     """docstring for main"""
     print("Inside in the main function")
     br = start_browser(brow_name)
     t_home(br, url)
+    br = start_browser(brow_name)
+    t_login(url_login)
 
 if __name__ == '__main__':
     exit(main())
