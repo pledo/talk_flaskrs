@@ -16,7 +16,7 @@ def start_browser(browser_name):
     browser = Browser(browser_name)
     return(browser)
 
-def test_home(browser_obj, address_url):
+def t_home(browser_obj, address_url):
     """docstring for setUp"""
     print('Inside in the test_home function')
 #    browser = Browser('firefox')
@@ -32,7 +32,7 @@ def test_home(browser_obj, address_url):
     return(result)
 
 
-def test_login(browser_obj):
+def t_login(browser_obj):
     """docstring for test_login"""
     pass
 
@@ -40,7 +40,7 @@ def main():
     """docstring for main"""
     print("Inside in the main function")
     br = start_browser(brow_name)
-    test_home(br, url)
+    t_home(br, url)
 
 if __name__ == '__main__':
     exit(main())

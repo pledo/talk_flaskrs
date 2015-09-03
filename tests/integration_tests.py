@@ -10,7 +10,7 @@ text_home = 'Flaskr'
 brow_name= 'firefox'
 sleep_time = 6
 
-def test_home(url):
+def t_home(url):
     """docstring for setUp"""
     print('Inside in the test_home function')
     result = get(url)
@@ -23,14 +23,14 @@ def test_home(url):
         return(1)
 
 
-def test_login(browser_obj):
+def t_login(browser_obj):
     """docstring for test_login"""
     pass
 
 def main():
     """docstring for main"""
     print("Inside in the main function")
-    res = test_home(url)
+    res = t_home(url)
     return(res)
 
 if __name__ == '__main__':

@@ -46,7 +46,7 @@ def teardown_request(exception):
 @app.route('/')
 def show_entries():
     """docstring for show_entries"""
-    init_db()
+#    init_db()
     cur = g.db.execute('select title, text from entries order by id desc')
     entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
 #    entries = cur.fetchall()
@@ -96,4 +96,5 @@ def logout():
 #---------------------------------
 
 if __name__ == '__main__':
+    init_db()
     app.run(host='0.0.0.0')
