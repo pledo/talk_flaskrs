@@ -20,7 +20,6 @@ def start_browser(browser_name):
 def t_home(browser_obj, address_url):
     """docstring for setUp"""
     print('Inside in the test_home function')
-#    browser = Browser('firefox')
     print('Enter in the home')
     browser_obj.visit(address_url)
     result = browser_obj.is_text_present(text_home)
@@ -35,7 +34,7 @@ def t_home(browser_obj, address_url):
 
 def t_login(url_l):
     """docstring for test_login"""
-    with Browser() as browser_obj:
+    with Browser('firefox') as browser_obj:
         browser_obj.visit(url_l)
         browser_obj.fill('username', 'admin')
         browser_obj.fill('password', 'default')
@@ -44,7 +43,11 @@ def t_login(url_l):
             button.click()
             print("Login Ok")
             sleep(sleep_time)
-            #browser_obj.quit()
+            browser_obj.fill('title', 'Testando')
+            browser_obj.fill('text', 'Fortemente no talk')
+            button_share = browser_obj.find_by_value('Share')
+            button_share.click()
+            sleep(sleep_time)
             return(0)
         else:
             print("Login Fail")
@@ -57,7 +60,6 @@ def main():
     print("Inside in the main function")
     br = start_browser(brow_name)
     t_home(br, url)
-    br = start_browser(brow_name)
     t_login(url_login)
 
 if __name__ == '__main__':
