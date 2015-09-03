@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from talk_flaskrs import flaskrs
+from . import flaskrs
 #import talk_flaskrs
 import pytest
 
